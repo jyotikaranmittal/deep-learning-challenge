@@ -6,85 +6,85 @@ Results: Using bulleted lists and images to support your answers, address the fo
 
 Data Preprocessing
 
-What variable(s) are the target(s) for your model?
-Target Variable:
+que:_ What variable(s) are the target(s) for your model?
+ans:_Target Variable:
 
 IS_SUCCESSFUL — this binary column indicates whether a charity was successful in receiving funding.
 
 
-What variable(s) are the features for your model?
-Feature Variables:
+que:-What variable(s) are the features for your model?
+ans:-Feature Variables:
 
 All other variables (except identifiers and names), including:
 
-Application Type
+-Application Type
 
-Classification
+-Classification
 
-Affiliation
+-Affiliation
 
-Income Amount
+-Income Amount
 
-Special Conditions
+-Special Conditions
 
 etc. (after encoding)
 
 
 
-What variable(s) should be removed from the input data because they are neither targets nor features?
+que:-What variable(s) should be removed from the input data because they are neither targets nor features?
 
-Removed Variables:
+ans:-Removed Variables:
 
-EIN — the employer identification number; a unique identifier but not useful for training.
+-EIN — the employer identification number; a unique identifier but not useful for training.
 
-NAME — names of organizations, which do not offer predictive value and could introduce noise.
+-NAME — names of organizations, which do not offer predictive value and could introduce noise.
 
 
 Compiling, Training, and Evaluating the Model
 
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Model Configuration (Best Attempt):
+que:-How many neurons, layers, and activation functions did you select for your neural network model, and why?
+ans:-Model Configuration (Best Attempt):
 
-Input Layer: Number of neurons = number of features after encoding and scaling.
+-Input Layer: Number of neurons = number of features after encoding and scaling.
 
-Hidden Layers:
+--Hidden Layers:
 
-Dense Layer with 128 neurons, activation:relu
+-Dense Layer with 128 neurons, activation:relu
 
-Dense Layer with 64 neurons, activation: relu
+-Dense Layer with 64 neurons, activation: relu
 
-Output Layer:
+-Output Layer:
 
-Dense Layer with 1 neuron, activation: sigmoid
+-Dense Layer with 1 neuron, activation: sigmoid
 
-Loss Function: binary_crossentropy
+-Loss Function: binary_crossentropy
 
-Optimizer: adam
+-Optimizer: adam
 
-Epochs: 100
+-Epochs: 100
 
 
-Were you able to achieve the target model performance?
+que:-Were you able to achieve the target model performance?
 
-Final Performance:
+ans:-Final Performance:
 
 Loss: 0.5650
 
 Accuracy: 72.46%
-❌ No, the model did not achieve the target of >75% accuracy.
+ No, the model did not achieve the target of >75% accuracy.
 
-What steps did you take in your attempts to increase model performance?
-Removed non-predictive features (EIN, NAME).
+que:-What steps did you take in your attempts to increase model performance?
+ans:-Removed non-predictive features (EIN, NAME).
 
-Encoded categorical variables using one-hot encoding.
+-Encoded categorical variables using one-hot encoding.
 
-Scaled numerical features using StandardScaler.
+-Scaled numerical features using StandardScaler.
 
-Increased the number of neurons in hidden layers.
+-Increased the number of neurons in hidden layers.
 
-Experimented with multiple activation functions (relu, tanh).
+-Experimented with multiple activation functions (relu, tanh).
 
-Increased the number of epochs from 50 to 100.
+-Increased the number of epochs from 50 to 100.
 
 
 Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
@@ -137,8 +137,8 @@ Accuracy: 72.77%
 Comparison to First Optimization
 
 Metric	First Attempt	Second Attempt	Change
-Loss	0.5650	0.5577	🔽 Decreased
-Accuracy	72.46%	72.77%	🔼 Increased
+Loss	0.5650	0.5577	 Decreased
+Accuracy	72.46%	72.77%	Increased
 
 Increased the number of hidden layers to 3 and used more neurons in each layer.
 
@@ -155,7 +155,7 @@ These gains indicate that the architecture was better suited to capture more com
 However, the model still did not reach the 75% accuracy threshold.
 
 Third Optimization Attempt
-⚙️ Model Configuration:
+ Model Configuration:
 Hidden Layers:
 
 Layer 1: 128 neurons, activation: tanh
@@ -168,25 +168,25 @@ Output Layer:
 
 Epochs: 75
 
-📉 Performance:
+Performance:
 Loss: 0.5590
 
 Accuracy: 72.67%
 
-📊 Performance Comparison Summary
+ Performance Comparison Summary
 
 Attempt	Hidden Layers / Activation	Epochs	Loss	Accuracy
 1	2 layers (80/30), relu	50	0.5650	72.46%
 2	3 layers (128/64/32), relu	75	0.5585	72.74%
 3	2 layers (128/64), tanh	100	0.5590	72.67%
-🔍 Analysis of Third Attempt:
+ Analysis of Third Attempt:
 Switching to tanh activation provided a smoother non-linearity, but it didn't significantly outperform relu in this case.
 
 Accuracy dropped slightly (by 0.07%) from the second model.
 
 Loss remained nearly the same, suggesting the model learned similarly, but generalization didn’t improve.
 
-✅ Conclusion & Recommendation:
+ Conclusion & Recommendation:
 All three models performed in the 72–73% accuracy range.
 
 The second model (with relu activation and 3 hidden layers) had the best performance.
